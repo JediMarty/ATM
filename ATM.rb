@@ -35,7 +35,7 @@ def Deposit
 end
 
 def Balance_Inquiry(person1)
-    puts ("Your balance is " + person1.money.to_s + " leva")
+    puts ("Your balance is #{person1.money} leva")
 end
 
 
