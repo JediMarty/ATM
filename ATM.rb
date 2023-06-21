@@ -30,8 +30,12 @@ def Withdrawal
 
 end
 
-def Deposit
+def Deposit(person1)
 
+    puts "Please enter how much you want to add!"
+    ds = gets.chomp().to_i
+    person1.money+=ds
+    
 end
 
 def Balance_Inquiry(person1)
@@ -51,9 +55,11 @@ when "1"
     
  
 when "2"
+    Deposit(person1)
 
 when "3"
     Balance_Inquiry(person1)
+
 end
 
 
