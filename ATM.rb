@@ -24,12 +24,6 @@ while card==false
 
 end
 
-def Withdrawal
-
-
-
-end
-
 def Deposit(person1)
 
     puts "Please enter how much you want to add!"
@@ -42,7 +36,7 @@ def Balance_Inquiry(person1)
     puts ("Your balance is #{person1.money} leva")
 end
 
-def caseWithdrawal
+def Withdrawal(person1)
 
     puts "\t\tPlease choose how much you want to Withdrawal!"
     puts "1: 20 lv"
@@ -53,24 +47,33 @@ def caseWithdrawal
     puts "6: 200 lv"
     puts "7: Custom"
     
-    case cho
+    choice = gets.chomp()
+
+    case choice
 
     when "1"
+        person1.money-=20
 
     when "2"
+        person1.money-=40
 
     when "3"
+        person1.money-=60
 
     when "4"
+        person1.money-=80
 
     when "5"
+        person1.money-=100
 
     when "6"
+        person1.money-=200
 
     when "7"
 
     end
 
+end
 
 puts "\t\tPlease choose service"
 puts "1: Withdrawal"
@@ -81,7 +84,7 @@ choice = gets.chomp()
 case choice
 
 when "1"
-    
+    Withdrawal(person1)
  
 when "2"
     Deposit(person1)
@@ -90,6 +93,18 @@ when "3"
     Balance_Inquiry(person1)
 
 end
+=begin
+puts "Would you like a note ?"
+puts "Y/N"
+choice = gets.chomp().upcase()
+
+if choice == "Y"
+
+else
+    puts "Have a nice day!"
+
+end
+=end
 
 
 
