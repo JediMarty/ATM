@@ -42,6 +42,35 @@ def Balance_Inquiry(person1)
     puts ("Your balance is #{person1.money} leva")
 end
 
+def caseWithdrawal
+
+    puts "\t\tPlease choose how much you want to Withdrawal!"
+    puts "1: 20 lv"
+    puts "2: 40 lv"
+    puts "3: 60 lv"
+    puts "4: 80 lv"
+    puts "5: 100 lv"
+    puts "6: 200 lv"
+    puts "7: Custom"
+    
+    case cho
+
+    when "1"
+
+    when "2"
+
+    when "3"
+
+    when "4"
+
+    when "5"
+
+    when "6"
+
+    when "7"
+
+    end
+
 
 puts "\t\tPlease choose service"
 puts "1: Withdrawal"
