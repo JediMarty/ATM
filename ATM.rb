@@ -73,7 +73,7 @@ def Withdrawal(person1)
         puts "Please enter how much you want to withdraw!"
         value = gets.chomp().to_i
         person1.money-=value
-        puts person1.money
+      
     end
 
 end
