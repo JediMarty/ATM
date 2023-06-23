@@ -38,14 +38,14 @@ end
 
 def Withdrawal(person1)
 
-    puts "\t\tPlease choose how much you want to Withdrawal!"
+    puts "\t\tPlease choose how much you want to withdrawal!"
     puts "1: 20 lv"
     puts "2: 40 lv"
     puts "3: 60 lv"
     puts "4: 80 lv"
     puts "5: 100 lv"
     puts "6: 200 lv"
-    puts "7: Custom"
+    puts "7: Custom amount"
     
     choice = gets.chomp()
 
@@ -70,7 +70,10 @@ def Withdrawal(person1)
         person1.money-=200
 
     when "7"
-
+        puts "Please enter how much you want to withdraw!"
+        value = gets.chomp().to_i
+        person1.money-=value
+        puts person1.money
     end
 
 end
