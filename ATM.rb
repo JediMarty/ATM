@@ -96,18 +96,30 @@ when "3"
     Balance_Inquiry(person1)
 
 end
-=begin
+
+def note 
+    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+        file.write(pers)
+    
+
+
+    end
+
+
+end
+
 puts "Would you like a note ?"
 puts "Y/N"
 choice = gets.chomp().upcase()
 
 if choice == "Y"
+    note
 
 else
     puts "Have a nice day!"
 
 end
-=end
+
 
 
 
