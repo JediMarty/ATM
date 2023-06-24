@@ -24,6 +24,14 @@ while card==false
 
 end
 
+def note_w(value)
+    
+    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+        file.write("Withdrawal: #{value}")
+    end
+
+end
+
 def Deposit(person1)
 
     puts "Please enter how much you want to add!"
@@ -52,22 +60,28 @@ def Withdrawal(person1)
     case choice
 
     when "1"
-        person1.money-=20
+        value = 20
+        person1.money-=value
 
     when "2"
-        person1.money-=40
+        value = 40
+        person1.money-=value
 
     when "3"
-        person1.money-=60
+        value = 60
+        person1.money-=value
 
     when "4"
-        person1.money-=80
+        value = 80
+        person1.money-=value
 
     when "5"
-        person1.money-=100
+        value = 100
+        person1.money-=value
 
     when "6"
-        person1.money-=200
+        value = 200
+        person1.money-=value
 
     when "7"
         puts "Please enter how much you want to withdraw!"
@@ -75,7 +89,9 @@ def Withdrawal(person1)
         person1.money-=value
       
     end
-
+    
+    note_w(value)
+   
 end
 
 puts "\t\tPlease choose service"
@@ -97,14 +113,21 @@ when "3"
 
 end
 
-def note 
-    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
-        file.write(pers)
+
+
+def note_D 
     
-
-
+    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+        file.write("Withdrawal: #{person1.money}")
     end
 
+end
+
+def note_BI
+    
+    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+        file.write("Withdrawal: #{person1.money}")
+    end
 
 end
 
@@ -113,7 +136,7 @@ puts "Y/N"
 choice = gets.chomp().upcase()
 
 if choice == "Y"
-    note
+    
 
 else
     puts "Have a nice day!"
