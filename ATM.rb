@@ -28,6 +28,24 @@ def note_w(value)
     
     File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
         file.write("Withdrawal: #{value}")
+        fire.write("Balance_Inquiry: #{person1.money}")
+    end
+
+end
+
+def note_D(ds)
+    
+    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+        file.write("Deposit: #{ds}")
+        fire.write("Balance_Inquiry: #{person1.money}")
+    end
+
+end
+
+def note_BI(person1)
+    
+    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+        file.write("Balance_Inquiry: #{person1.money}")
     end
 
 end
@@ -37,11 +55,12 @@ def Deposit(person1)
     puts "Please enter how much you want to add!"
     ds = gets.chomp().to_i
     person1.money+=ds
-    
+    note_D(ds)
 end
 
 def Balance_Inquiry(person1)
     puts ("Your balance is #{person1.money} leva")
+    
 end
 
 def Withdrawal(person1)
@@ -113,30 +132,12 @@ when "3"
 
 end
 
-
-
-def note_D 
-    
-    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
-        file.write("Withdrawal: #{person1.money}")
-    end
-
-end
-
-def note_BI
-    
-    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
-        file.write("Withdrawal: #{person1.money}")
-    end
-
-end
-
 puts "Would you like a note ?"
 puts "Y/N"
 choice = gets.chomp().upcase()
 
 if choice == "Y"
-    
+    note_BI(person1)
 
 else
     puts "Have a nice day!"
