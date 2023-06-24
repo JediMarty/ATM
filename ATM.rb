@@ -1,4 +1,4 @@
-
+#in works!!!
 class Person_card
 
     attr_accessor :name, :money
@@ -24,20 +24,23 @@ while card==false
 
 end
 
-def note_w(value)
+ds = 0
+value = 0
+
+def note_w(person1,value)
     
     File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
         file.write("Withdrawal: #{value}")
-        fire.write("Balance_Inquiry: #{person1.money}")
+        file.write("Balance_Inquiry: #{person1.money}")
     end
 
 end
 
-def note_D(ds)
+def note_D(person1,ds)
     
     File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
         file.write("Deposit: #{ds}")
-        fire.write("Balance_Inquiry: #{person1.money}")
+        file.write("Balance_Inquiry: #{person1.money}")
     end
 
 end
@@ -55,7 +58,7 @@ def Deposit(person1)
     puts "Please enter how much you want to add!"
     ds = gets.chomp().to_i
     person1.money+=ds
-    note_D(ds)
+    
 end
 
 def Balance_Inquiry(person1)
@@ -74,9 +77,9 @@ def Withdrawal(person1)
     puts "6: 200 lv"
     puts "7: Custom amount"
     
-    choice = gets.chomp()
+    choice2 = gets.chomp()
 
-    case choice
+    case choice2
 
     when "1"
         value = 20
@@ -109,8 +112,6 @@ def Withdrawal(person1)
       
     end
     
-    note_w(value)
-   
 end
 
 puts "\t\tPlease choose service"
@@ -134,10 +135,19 @@ end
 
 puts "Would you like a note ?"
 puts "Y/N"
-choice = gets.chomp().upcase()
+choice3 = gets.chomp().upcase()
 
-if choice == "Y"
-    note_BI(person1)
+if choice3 == "Y"
+    if choice == "1"
+        note_w(person1,value)
+
+    elsif choice=="2"
+        note_D(person1,ds)
+    
+    else
+        note_BI(person1)
+    
+    end
 
 else
     puts "Have a nice day!"
