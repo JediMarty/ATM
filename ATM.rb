@@ -1,16 +1,34 @@
-#in works!!!
 class Person_card
 
-    attr_accessor :name, :money
+    attr_accessor :name, :money, :ds
     
-    def initialize(name,money)
+    def initialize(name,money,ds)
         @name = name
         @money = money
+        @ds = ds
+       
+    end
+
+    def Deposit(person1)
+
+        puts "Please enter how much you want to add!"
+        person1.ds = gets.chomp().to_i
+        person1.money+=person1.ds
+        
+    end
+    
+    def note_D(person1,ds)
+    
+        File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+            file.write("Deposit: #{person1.ds}")
+            file.write("Balance_Inquiry: #{person1.money}")
+        end
+    
     end
 
 end
 
-person1 = Person_card.new("Andrew",1200)
+person1 = Person_card.new("Andrew",1200,0)
 card = false
 
 while card==false
@@ -36,14 +54,7 @@ def note_w(person1,value)
 
 end
 
-def note_D(person1,ds)
-    
-    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
-        file.write("Deposit: #{ds}")
-        file.write("Balance_Inquiry: #{person1.money}")
-    end
 
-end
 
 def note_BI(person1)
     
@@ -53,13 +64,7 @@ def note_BI(person1)
 
 end
 
-def Deposit(person1)
 
-    puts "Please enter how much you want to add!"
-    ds = gets.chomp().to_i
-    person1.money+=ds
-    
-end
 
 def Balance_Inquiry(person1)
     puts ("Your balance is #{person1.money} leva")
@@ -126,7 +131,7 @@ when "1"
     Withdrawal(person1)
  
 when "2"
-    Deposit(person1)
+    person1.Deposit(person1)
 
 when "3"
     Balance_Inquiry(person1)
@@ -142,7 +147,7 @@ if choice3 == "Y"
         note_w(person1,value)
 
     elsif choice=="2"
-        note_D(person1,ds)
+        person1.note_D(person1,ds)
     
     else
         note_BI(person1)
