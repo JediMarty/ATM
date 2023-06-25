@@ -1,12 +1,13 @@
+#in progress...
 class Person_card
 
     attr_accessor :name, :money, :ds
     
-    def initialize(name,money,ds)
+    def initialize(name,money,ds,value)
         @name = name
         @money = money
         @ds = ds
-       
+        @value = value
     end
 
     def Deposit(person1)
@@ -17,6 +18,22 @@ class Person_card
         
     end
     
+  
+
+    def Balance_Inquiry(person1)
+        puts ("Your balance is #{person1.money} leva")
+        
+    end
+
+    def note_w(person1,value)
+    
+        File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+            file.write("Withdrawal: #{person1.value}")
+            file.write("Balance_Inquiry: #{person1.money}")
+        end
+    
+    end
+
     def note_D(person1,ds)
     
         File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
@@ -25,10 +42,18 @@ class Person_card
         end
     
     end
+  
+    def note_BI(person1)
+    
+        File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
+            file.write("Balance_Inquiry: #{person1.money}")
+        end
+    
+    end
 
 end
 
-person1 = Person_card.new("Andrew",1200,0)
+person1 = Person_card.new("Andrew",1200,0,0)
 card = false
 
 while card==false
@@ -40,35 +65,6 @@ while card==false
     card = true
     end
 
-end
-
-ds = 0
-value = 0
-
-def note_w(person1,value)
-    
-    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
-        file.write("Withdrawal: #{value}")
-        file.write("Balance_Inquiry: #{person1.money}")
-    end
-
-end
-
-
-
-def note_BI(person1)
-    
-    File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
-        file.write("Balance_Inquiry: #{person1.money}")
-    end
-
-end
-
-
-
-def Balance_Inquiry(person1)
-    puts ("Your balance is #{person1.money} leva")
-    
 end
 
 def Withdrawal(person1)
@@ -87,33 +83,33 @@ def Withdrawal(person1)
     case choice2
 
     when "1"
-        value = 20
-        person1.money-=value
+        person1.value = 20
+        person1.money-=person1.value
 
     when "2"
-        value = 40
-        person1.money-=value
+        person1.value = 40
+        person1.money-=person1.value
 
     when "3"
-        value = 60
-        person1.money-=value
+        person1.value = 60
+        person1.money-=person1.value
 
     when "4"
-        value = 80
-        person1.money-=value
+        person1.value = 80
+        person1.money-=person1.value
 
     when "5"
-        value = 100
-        person1.money-=value
+        person1.value = 100
+        person1.money-=person1.value
 
     when "6"
-        value = 200
-        person1.money-=value
+        person1.value= 200
+        person1.money-=person1.value
 
     when "7"
         puts "Please enter how much you want to withdraw!"
-        value = gets.chomp().to_i
-        person1.money-=value
+        person1.value = gets.chomp().to_i
+        person1.money-=person1.value
       
     end
     
@@ -134,7 +130,7 @@ when "2"
     person1.Deposit(person1)
 
 when "3"
-    Balance_Inquiry(person1)
+    person1.Balance_Inquiry(person1)
 
 end
 
@@ -144,13 +140,13 @@ choice3 = gets.chomp().upcase()
 
 if choice3 == "Y"
     if choice == "1"
-        note_w(person1,value)
+        person1.note_w(person1,value)
 
     elsif choice=="2"
         person1.note_D(person1,ds)
     
     else
-        note_BI(person1)
+        person1.note_BI(person1)
     
     end
 
