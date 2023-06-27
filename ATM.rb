@@ -1,10 +1,10 @@
 #in progress...
 class Person_card
 
-    attr_accessor :name, :money, :ds, :value
+    attr_accessor :pincode, :money, :ds, :value
     
-    def initialize(name,money,ds,value)
-        @name = name
+    def initialize(pincode,money,ds,value)
+        @pincode = pincode
         @money = money
         @ds = ds
         @value = value
@@ -97,12 +97,10 @@ class Person_card
         end
     
     end
-
-  
     
-        def saves_note(person1)
+    def saves_note(person1)
            
-            file = File.open("c:/Users/Admin/Desktop/gits/ATM/notes.txt","w+")
+            file = File.open("c:/Users/Admin/Desktop/gits/ATM/notes.txt","w")
             
             file.write("#{person1.money}")
             
@@ -110,19 +108,30 @@ class Person_card
     
         end
     
-
 end
 
-person1 = Person_card.new("Andrew",1200,0,0)
+def read_note()
+    File.open("c:/Users/Admin/Desktop/gits/ATM/notes.txt","r") do |file|
+        money = file.read().to_i
+        return money
+    end
+end
+
+if File.exist?("notes.txt")
+    money = read_note()
+    person1 = Person_card.new("7777",money,0,0)
+else
+    person1 = Person_card.new("7777",1200,0,0)
+end
 
 card = false
 
-while card==false
+while card == false
     
     puts "\t\tATM"
-    puts "\tPlease insert your card!"
-    insert = gets.chomp().downcase()
-    if insert == "card"
+    puts "\tPlease enter your pincode!"
+    enter = gets.chomp().downcase()
+    if enter == "7777"
     card = true
     end
 
