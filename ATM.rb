@@ -9,22 +9,7 @@ class Person_card
         @ds = ds
         @value = value
     end
-     
-    def saves_note(person1)
-        str = ""
-        file = File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","r")
-        
-        for line in file.readlines()
-            if line.include?("Balance")
-            str = line.split
-            num = str[2].to_i
-            person1.money = num
-            end
-            
-        end
-        
-        file.close()
-    end
+    
 
     def Withdrawal(person1)
 
@@ -113,15 +98,22 @@ class Person_card
     
     end
 
-end
-person1 = Person_card.new("Andrew",1200,0,0)
-if File.exist?("note.txt")
-    person1.saves_note(person1)
-
- 
+  
+    
+        def saves_note(person1)
+           
+            file = File.open("c:/Users/Admin/Desktop/gits/ATM/notes.txt","w+")
+            
+            file.write("#{person1.money}")
+            
+            file.close()
+    
+        end
     
 
 end
+
+person1 = Person_card.new("Andrew",1200,0,0)
 
 card = false
 
@@ -162,16 +154,20 @@ choice3 = gets.chomp().upcase()
 if choice3 == "Y"
     if choice == "1"
         person1.note_w(person1)
+        person1.saves_note(person1)
 
     elsif choice=="2"
         person1.note_D(person1)
+        person1.saves_note(person1)
     
     else
         person1.note_BI(person1)
+        person1.saves_note(person1)
     
     end
 
 else
+    person1.saves_note(person1)
     puts "Have a nice day!"
 
 end
