@@ -9,6 +9,22 @@ class Person_card
         @ds = ds
         @value = value
     end
+     
+    def saves_note(person1)
+        str = ""
+        file = File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","r")
+        
+        for line in file.readlines()
+            if line.include?("Balance")
+            str = line.split
+            num = str[2].to_i
+            person1.money = num
+            end
+            
+        end
+        
+        file.close()
+    end
 
     def Withdrawal(person1)
 
@@ -75,7 +91,7 @@ class Person_card
     
         File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
             file.write("Withdrawal: #{person1.value}\n")
-            file.write("Balance_Inquiry: #{person1.money}")
+            file.write("Balance Inquiry: #{person1.money}")
         end
     
     end
@@ -84,7 +100,7 @@ class Person_card
     
         File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
             file.write("Deposit: #{person1.ds}\n")
-            file.write("Balance_Inquiry: #{person1.money}")
+            file.write("Balance Inquiry: #{person1.money}")
         end
     
     end
@@ -92,14 +108,21 @@ class Person_card
     def note_BI(person1)
     
         File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
-            file.write("Balance_Inquiry: #{person1.money}")
+            file.write("Balance Inquiry: #{person1.money}")
         end
     
     end
 
 end
-
 person1 = Person_card.new("Andrew",1200,0,0)
+if File.exist?("note.txt")
+    person1.saves_note(person1)
+
+ 
+    
+
+end
+
 card = false
 
 while card==false
@@ -152,7 +175,5 @@ else
     puts "Have a nice day!"
 
 end
-
-
 
 
