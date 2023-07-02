@@ -180,5 +180,3 @@ else
     puts "Have a nice day!"
 
 end
-
-
