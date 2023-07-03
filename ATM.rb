@@ -175,16 +175,16 @@ choice3 = gets.chomp().upcase()
 end
 
 if choice3 == "Y"
-    if choice == "1"   #if our choice is "1" from the menu service we will have note for Withdrawal!
+    if choice == "1"   # if our choice is "1" from the menu service we will have note for Withdrawal!
         person1.note_w(person1)
         person1.saves_note(person1)
 
-    elsif choice=="2"  #if our choice is "2" from the menu service we will have note for Deposit!
+    elsif choice=="2"  # if our choice is "2" from the menu service we will have note for Deposit!
         person1.note_D(person1)
         person1.saves_note(person1)
     
     else
-        person1.note_BI(person1) #if our choice is "3" from the menu service we will have note for Balance inquiry!
+        person1.note_BI(person1) # if our choice is "3" from the menu service we will have note for Balance inquiry!
         person1.saves_note(person1)
     
     end
