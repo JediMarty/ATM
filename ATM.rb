@@ -106,8 +106,15 @@ class Person_card
             
             file.close()
     
+    end
+
+    def read_note(money)
+        File.open("c:/Users/Admin/Desktop/gits/ATM/notes.txt","r") do |file|
+            money = file.read().to_i
+            
         end
-    
+    end
+
 end
 
 def read_note()
@@ -139,28 +146,40 @@ while card == false
 
 end
 
-puts "\t\tPlease choose service"
-puts "1: Withdrawal"
-puts "2: Deposit"
-puts "3: Balance Inquiry"
-choice = gets.chomp()
-
-case choice
-
-when "1"
-    person1.Withdrawal(person1)
- 
-when "2"
-    person1.Deposit(person1)
-
-when "3"
-    person1.Balance_Inquiry(person1)
+flag = false
+while flag == false
+    
+    puts "\t\tPlease choose service"
+    puts "1: Withdrawal"
+    puts "2: Deposit"
+    puts "3: Balance Inquiry"
+    choice = gets.chomp()
+    
+    case choice
+    
+    when "1"
+        person1.Withdrawal(person1)
+        flag = true
+    when "2"
+        person1.Deposit(person1)
+        flag = true
+    when "3"
+        person1.Balance_Inquiry(person1)
+        flag = true
+    
+    else
+        puts "Wrong choice!"
+        puts "Please try again..."
+    end
 
 end
 
+choice3 = ""
+while (!(choice3 == 'Y' or choice3 == 'N'))
 puts "Would you like a note ?"
 puts "Y/N"
 choice3 = gets.chomp().upcase()
+end
 
 if choice3 == "Y"
     if choice == "1"   #if our choice is "1" from the menu service we will have note for Withdrawal!
