@@ -72,7 +72,7 @@ class Person_card
         
     end
 
-    def note_w(person1)
+    def note_w(person1) # Method for note for the customer!
     
         File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
             file.write("Withdrawal: #{person1.value}\n")
@@ -81,7 +81,7 @@ class Person_card
     
     end
 
-    def note_D(person1)
+    def note_D(person1) # Method for note for the customer!
     
         File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
             file.write("Deposit: #{person1.ds}\n")
@@ -90,7 +90,7 @@ class Person_card
     
     end
   
-    def note_BI(person1)
+    def note_BI(person1) # Method for note for the customer!
     
         File.open("c:/Users/Admin/Desktop/gits/ATM/note.txt","w") do |file|
             file.write("Balance Inquiry: #{person1.money}")
@@ -98,7 +98,7 @@ class Person_card
     
     end
     
-    def saves_note(person1)
+    def saves_note(person1) # Method for note for the program!
            
             file = File.open("c:/Users/Admin/Desktop/gits/ATM/notes.txt","w")
             
@@ -108,16 +108,9 @@ class Person_card
     
     end
 
-    def read_note(money)
-        File.open("c:/Users/Admin/Desktop/gits/ATM/notes.txt","r") do |file|
-            money = file.read().to_i
-            
-        end
-    end
-
 end
 
-def read_note()
+def read_note() # Method for note for the program!
     File.open("c:/Users/Admin/Desktop/gits/ATM/notes.txt","r") do |file|
         money = file.read().to_i
         return money
