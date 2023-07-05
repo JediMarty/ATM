@@ -10,4 +10,4 @@ You can receive note in txt file like <b>real</b> note from ATM!
 In the repository you will see the ruby file and (2x) txt files. 
 One txt for the customer and one for the application to track your money!
 
-<JediMarty>
+<h3><b>JediMarty</b>h3>
