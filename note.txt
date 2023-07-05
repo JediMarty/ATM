@@ -1,0 +1,2 @@
+Withdrawal: 200
+Balance Inquiry: 1000

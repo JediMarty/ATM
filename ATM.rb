@@ -1,4 +1,4 @@
-#in progress...
+
 class Person_card
 
     attr_accessor :pincode, :money, :ds, :value
